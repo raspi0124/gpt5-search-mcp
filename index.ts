@@ -6,14 +6,15 @@ import { z } from "zod";
 
 // Create server instance
 const server = new McpServer({
-  name: "o3-search-mcp",
-  version: "0.0.1",
+  name: "gpt5-search-mcp",
+  version: "0.0.3",
 });
 
 // Configuration from environment variables
 const config = {
   model: process.env.OPENAI_MODEL || "gpt-5",
   apiKey: process.env.OPENAI_API_KEY,
+  baseUrl: process.env.OPENAI_BASE_URL,
   maxRetries: parseInt(process.env.OPENAI_MAX_RETRIES || "3"),
   timeout: parseInt(process.env.OPENAI_API_TIMEOUT || "60000"),
   searchContextSize: (process.env.SEARCH_CONTEXT_SIZE || "medium") as
@@ -21,6 +22,7 @@ const config = {
     | "medium"
     | "high",
   reasoningEffort: (process.env.REASONING_EFFORT || "medium") as
+    | "minimal"
     | "low"
     | "medium"
     | "high",
@@ -29,19 +31,21 @@ const config = {
 // Initialize OpenAI client with retry and timeout configuration
 const openai = new OpenAI({
   apiKey: config.apiKey,
+  // Allow overriding the API base URL (e.g., for proxies or gateways)
+  baseURL: config.baseUrl,
   maxRetries: config.maxRetries,
   timeout: config.timeout,
 });
 
-// Define the o3-search tool
+// Define the gpt5-search tool
 server.tool(
-  "o3-search",
+  "gpt5-search",
   `An AI agent with advanced web search capabilities. Useful for finding the latest information, troubleshooting errors, and discussing ideas or design challenges. Supports natural language queries.`,
   {
     input: z
       .string()
       .describe(
-        "Ask questions, search for information, or consult about complex problems in English.",
+        "Ask questions, search for information, or consult about complex problems in English."
       ),
   },
   async ({ input }) => {
@@ -74,12 +78,14 @@ server.tool(
         content: [
           {
             type: "text",
-            text: `Error: ${error instanceof Error ? error.message : "Unknown error occurred"}`,
+            text: `Error: ${
+              error instanceof Error ? error.message : "Unknown error occurred"
+            }`,
           },
         ],
       };
     }
-  },
+  }
 );
 
 async function main() {

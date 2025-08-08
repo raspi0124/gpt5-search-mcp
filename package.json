@@ -1,37 +1,39 @@
 {
-  "name": "o3-search-mcp",
-  "description": "MCP server that enables AI agents to perform intelligent web searches using OpenAI's o3 model with natural language queries",
-  "version": "0.0.7",
+  "name": "gpt5-search-mcp",
+  "description": "MCP server that enables AI agents to perform intelligent web searches using OpenAI's gpt-5 model with natural language queries. This repository is a fork of yoshiko-pg/o3-search-mcp with defaults and naming updated.",
+  "version": "0.0.3",
   "main": "build/index.js",
   "bin": {
-    "o3-search-mcp": "./build/index.js"
+    "gpt5-search-mcp": "./build/index.js"
   },
   "files": [
     "build/"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yoshiko-pg/o3-search-mcp.git"
+    "url": "git+https://github.com/raspi0124/gpt5-search-mcp.git"
   },
   "bugs": {
-    "url": "https://github.com/yoshiko-pg/o3-search-mcp/issues"
+    "url": "https://github.com/raspi0124/gpt5-search-mcp/issues"
   },
-  "homepage": "https://github.com/yoshiko-pg/o3-search-mcp#readme",
+  "homepage": "https://github.com/raspi0124/gpt5-search-mcp#readme",
   "keywords": [
     "mcp",
     "claude",
+    "claude-code",
     "openai",
-    "o3",
+    "gpt-5",
+    "gpt5",
     "chatgpt",
     "llm"
   ],
-  "author": "@yoshiko-pg",
+  "author": "@raspi0124",
   "license": "MIT",
   "type": "module",
-  "packageManager": "pnpm@10.10.0",
+  
   "scripts": {
     "build": "tsc && chmod +x build/index.js",
-    "prepublishOnly": "pnpm run build"
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.13.2",
