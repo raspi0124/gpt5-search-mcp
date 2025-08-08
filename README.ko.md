@@ -158,6 +158,7 @@ json:
 | `REASONING_EFFORT` | 선택 | `medium` | 추론 노력 수준 제어<br>값: `low`, `medium`, `high` |
 | `OPENAI_API_TIMEOUT` | 선택 | `60000` | 밀리초 단위의 API 요청 시간 초과<br>예: `120000`은 2분 |
 | `OPENAI_MAX_RETRIES` | 선택 | `3` | 실패한 요청의 최대 재시도 횟수<br>SDK는 속도 제한(429), 서버 오류(5xx), 연결 오류 시 자동으로 재시도합니다 |
+| `OPENAI_MODEL` | 선택 | `gpt-5` | 사용할 모델명 (예: `gpt-5`, `o3`) |
 
 ## 주의 사항
 

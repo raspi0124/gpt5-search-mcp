@@ -12,6 +12,7 @@ const server = new McpServer({
 
 // Configuration from environment variables
 const config = {
+  model: process.env.OPENAI_MODEL || "gpt-5",
   apiKey: process.env.OPENAI_API_KEY,
   maxRetries: parseInt(process.env.OPENAI_MAX_RETRIES || "3"),
   timeout: parseInt(process.env.OPENAI_API_TIMEOUT || "60000"),
@@ -46,7 +47,7 @@ server.tool(
   async ({ input }) => {
     try {
       const response = await openai.responses.create({
-        model: "o3",
+        model: config.model,
         input,
         tools: [
           {

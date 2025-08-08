@@ -158,6 +158,7 @@ json:
 | `REASONING_EFFORT` | 可选 | `medium` | 控制推理努力级别<br>值: `low`, `medium`, `high` |
 | `OPENAI_API_TIMEOUT` | 可选 | `60000` | API请求超时（毫秒）<br>示例: `120000` 为2分钟 |
 | `OPENAI_MAX_RETRIES` | 可选 | `3` | 失败请求的最大重试次数<br>SDK会在速率限制（429）、服务器错误（5xx）和连接错误时自动重试 |
+| `OPENAI_MODEL` | 可选 | `gpt-5` | 使用的目标模型名称（例如: `gpt-5`, `o3`） |
 
 ## 注意事项
 

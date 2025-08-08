@@ -159,6 +159,7 @@ json:
 | `REASONING_EFFORT` | Optional | `medium` | Controls the reasoning effort level<br>Values: `low`, `medium`, `high` |
 | `OPENAI_API_TIMEOUT` | Optional | `60000` | API request timeout in milliseconds<br>Example: `120000` for 2 minutes |
 | `OPENAI_MAX_RETRIES` | Optional | `3` | Maximum number of retries for failed requests<br>The SDK automatically retries on rate limits (429), server errors (5xx), and connection errors |
+| `OPENAI_MODEL` | Optional | `gpt-5` | Target model to use (e.g., `gpt-5`, `o3`) |
 
 ## Notes
 

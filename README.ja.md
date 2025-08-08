@@ -158,6 +158,7 @@ json:
 | `REASONING_EFFORT` | 任意 | `medium` | 推論努力レベルを制御<br>値: `low`, `medium`, `high` |
 | `OPENAI_API_TIMEOUT` | 任意 | `60000` | ミリ秒単位のAPIリクエストタイムアウト<br>例: `120000` で2分 |
 | `OPENAI_MAX_RETRIES` | 任意 | `3` | 失敗したリクエストの最大リトライ回数<br>SDKはレート制限（429）、サーバーエラー（5xx）、接続エラーで自動的にリトライします |
+| `OPENAI_MODEL` | 任意 | `gpt-5` | 使用するモデル名（例: `gpt-5`, `o3`） |
 
 ## 注意点
 
